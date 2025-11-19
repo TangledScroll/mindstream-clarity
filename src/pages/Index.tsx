@@ -1,4 +1,4 @@
-import { GradientBlinds } from '@/components/GradientBlinds';
+import Grid from '@/components/Grid';
 import { Layout } from '@/components/Layout';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -23,7 +23,15 @@ const Index = () => {
 
   return (
     <Layout>
-      <GradientBlinds />
+      <div className="fixed inset-0 -z-10">
+        <Grid 
+          direction="diagonal" 
+          speed={1.5} 
+          borderColor="rgba(81, 53, 101, 0.15)" 
+          squareSize={60}
+          hoverFillColor="rgba(81, 53, 101, 0.08)"
+        />
+      </div>
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center pt-20">
