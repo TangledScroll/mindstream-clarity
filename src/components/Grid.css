@@ -1,0 +1,17 @@
+/* Fullscreen app wrapper is defined in App.tsx, but we keep this
+   focused just on the grid component styling. */
+
+.grid-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Make the canvas fill its container and remove default border */
+.grid-canvas {
+  width: 100vw;
+  height: 100vh;
+  display: block;
+  border: none;
+}
