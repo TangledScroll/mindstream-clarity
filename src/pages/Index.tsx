@@ -42,158 +42,246 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section className="relative py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="mb-4">Systems that do the heavy lifting</h2>
-            <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-              Designed to remove complexity and deliver measurable outcomes.
-            </p>
+      {/* Services Section - Sophisticated Layered Design */}
+      <section className="relative min-h-screen py-32">
+        {/* Translucent Center Overlay */}
+        <div className="absolute inset-0 flex justify-center">
+          <div className="w-full max-w-6xl bg-black/30 backdrop-blur-sm"></div>
+        </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 max-w-5xl mx-auto px-8">
+          {/* Section Header */}
+          <div className="mb-32 animate-fade-in">
+            <div className="flex items-baseline gap-6 mb-6">
+              <span className="text-sm font-medium text-primary tracking-[0.2em] uppercase">
+                Core Systems
+              </span>
+              <div className="flex-1 h-px bg-gradient-to-r from-primary/40 to-transparent"></div>
+            </div>
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-light leading-[1.1] text-foreground mb-6">
+              Systems that do<br />the heavy lifting
+            </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-primary/20 bg-background/95 backdrop-blur-sm hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6">
-                  <div className="w-6 h-6 bg-primary rounded"></div>
+          {/* Service Blocks - Staggered Timeline Layout */}
+          <div className="space-y-40">
+            {/* Service 1 - Automation Architecture */}
+            <div className="grid md:grid-cols-12 gap-8 items-start group animate-fade-in">
+              <div className="md:col-span-1 pt-2">
+                <div className="w-3 h-3 rounded-full bg-primary ring-4 ring-primary/20"></div>
+              </div>
+              <div className="md:col-span-4">
+                <div className="text-6xl md:text-7xl font-bold text-primary/10 mb-4">01</div>
+                <h3 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground group-hover:text-primary transition-colors duration-300">
+                  Automation<br />Architecture
+                </h3>
+              </div>
+              <div className="md:col-span-7 md:pt-12">
+                <div className="border-l-2 border-primary/20 pl-8 group-hover:border-primary/60 transition-colors duration-300">
+                  <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-6">
+                    We design, streamline, and automate your operational workflows with clarity and precision.
+                  </p>
+                  <p className="text-base text-foreground/60 leading-relaxed">
+                    The result: fewer manual steps, fewer errors, and a system that scales without slowing down.
+                  </p>
                 </div>
-                <h3 className="text-2xl mb-4">Automation Architecture</h3>
-                <p className="text-foreground/70 leading-relaxed">
-                  We design, streamline, and automate your operational workflows with clarity and precision. The result: fewer manual steps, fewer errors, and a system that scales without slowing down.
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="border-secondary/20 bg-background/95 backdrop-blur-sm hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 rounded-lg bg-secondary/10 flex items-center justify-center mb-6">
-                  <div className="w-6 h-6 bg-secondary rounded"></div>
+            {/* Service 2 - AI-Driven Processes */}
+            <div className="grid md:grid-cols-12 gap-8 items-start group animate-fade-in md:ml-20">
+              <div className="md:col-span-1 pt-2">
+                <div className="w-3 h-3 rounded-full bg-secondary ring-4 ring-secondary/20"></div>
+              </div>
+              <div className="md:col-span-4">
+                <div className="text-6xl md:text-7xl font-bold text-secondary/10 mb-4">02</div>
+                <h3 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground group-hover:text-secondary transition-colors duration-300">
+                  AI-Driven<br />Processes
+                </h3>
+              </div>
+              <div className="md:col-span-7 md:pt-12">
+                <div className="border-l-2 border-secondary/20 pl-8 group-hover:border-secondary/60 transition-colors duration-300">
+                  <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-6">
+                    Strategic use of AI to enhance decision-making, accelerate tasks, and provide insight where it matters.
+                  </p>
+                  <p className="text-base text-foreground/60 leading-relaxed">
+                    Always grounded. Always practical.
+                  </p>
                 </div>
-                <h3 className="text-2xl mb-4">AI-Driven Processes</h3>
-                <p className="text-foreground/70 leading-relaxed">
-                  Strategic use of AI to enhance decision-making, accelerate tasks, and provide insight where it matters. Always grounded. Always practical.
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
 
-            <Card className="border-accent/30 bg-background/95 backdrop-blur-sm hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <div className="w-12 h-12 rounded-lg bg-accent/20 flex items-center justify-center mb-6">
-                  <div className="w-6 h-6 bg-accent rounded"></div>
+            {/* Service 3 - Data Simplification */}
+            <div className="grid md:grid-cols-12 gap-8 items-start group animate-fade-in">
+              <div className="md:col-span-1 pt-2">
+                <div className="w-3 h-3 rounded-full bg-accent ring-4 ring-accent/20"></div>
+              </div>
+              <div className="md:col-span-4">
+                <div className="text-6xl md:text-7xl font-bold text-accent/10 mb-4">03</div>
+                <h3 className="text-3xl md:text-4xl font-semibold mb-4 text-foreground group-hover:text-accent transition-colors duration-300">
+                  Data Simplification<br />& Clarity
+                </h3>
+              </div>
+              <div className="md:col-span-7 md:pt-12">
+                <div className="border-l-2 border-accent/20 pl-8 group-hover:border-accent/60 transition-colors duration-300">
+                  <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-6">
+                    Your data shouldn't slow you down. We organise, structure, and visualise it so you always know what's happening.
+                  </p>
+                  <p className="text-base text-foreground/60 leading-relaxed">
+                    And what to do next.
+                  </p>
                 </div>
-                <h3 className="text-2xl mb-4">Data Simplification & Clarity</h3>
-                <p className="text-foreground/70 leading-relaxed">
-                  Your data shouldn't slow you down. We organise, structure, and visualise it so you always know what's happening — and what to do next.
-                </p>
-              </CardContent>
-            </Card>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="relative py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="mb-8 text-center">Built for clarity. Driven by precision.</h2>
-          <div className="space-y-6 text-lg text-foreground/80 leading-relaxed">
-            <p>
-              Mindstream Solutions was created to bring structure to chaos. We design systems that replace clutter with clarity — systems that think, adapt, and elevate the way businesses operate. No noise. No nonsense. Just intelligent foundations that move work forward.
+      {/* About Section - Minimal Statement */}
+      <section className="relative py-32 px-6">
+        <div className="absolute inset-0 flex justify-center">
+          <div className="w-full max-w-6xl bg-black/20 backdrop-blur-sm"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <div className="text-center space-y-12 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2]">
+              Built for clarity.<br />Driven by precision.
+            </h2>
+            
+            <div className="h-px w-24 bg-primary mx-auto"></div>
+            
+            <p className="text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-3xl mx-auto">
+              Mindstream Solutions was created to bring structure to chaos. We design systems that replace clutter with clarity — systems that think, adapt, and elevate the way businesses operate.
             </p>
-            <p className="text-center font-medium text-foreground">
+            
+            <p className="text-lg font-medium text-foreground/90 pt-8">
               Every workflow tells a story. We make sure yours is sharp.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="relative py-24 px-6 bg-primary/5">
+      {/* Testimonials Section - Refined Layout */}
+      <section className="relative py-32 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="mb-16 text-center">What clients say</h2>
+          <div className="mb-20 animate-fade-in">
+            <div className="flex items-baseline gap-6 mb-6">
+              <span className="text-sm font-medium text-primary tracking-[0.2em] uppercase">
+                Client Impact
+              </span>
+              <div className="flex-1 h-px bg-gradient-to-r from-primary/40 to-transparent"></div>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-light">What clients say</h2>
+          </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <Card className="border-primary/20 bg-background">
-              <CardContent className="p-8">
-                <p className="text-lg text-foreground/80 mb-6 italic leading-relaxed">
+          <div className="grid md:grid-cols-3 gap-12">
+            <div className="group animate-fade-in">
+              <div className="border-l-4 border-primary/30 pl-6 py-4 hover:border-primary transition-colors duration-300">
+                <p className="text-xl text-foreground/80 mb-8 leading-relaxed italic">
                   "Mindstream didn't just fix our workflow. They rebuilt it into something that finally makes sense."
                 </p>
-                <p className="text-sm font-medium">A.D.</p>
-              </CardContent>
-            </Card>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-sm font-semibold text-primary">AD</span>
+                  </div>
+                  <p className="text-sm font-medium text-foreground/60">A.D.</p>
+                </div>
+              </div>
+            </div>
 
-            <Card className="border-primary/20 bg-background">
-              <CardContent className="p-8">
-                <p className="text-lg text-foreground/80 mb-6 italic leading-relaxed">
+            <div className="group animate-fade-in md:mt-12">
+              <div className="border-l-4 border-secondary/30 pl-6 py-4 hover:border-secondary transition-colors duration-300">
+                <p className="text-xl text-foreground/80 mb-8 leading-relaxed italic">
                   "Elegant systems. Clear thinking. Zero friction. Working with them changed how we operate day to day."
                 </p>
-                <p className="text-sm font-medium">S.M.</p>
-              </CardContent>
-            </Card>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
+                    <span className="text-sm font-semibold text-secondary">SM</span>
+                  </div>
+                  <p className="text-sm font-medium text-foreground/60">S.M.</p>
+                </div>
+              </div>
+            </div>
 
-            <Card className="border-primary/20 bg-background">
-              <CardContent className="p-8">
-                <p className="text-lg text-foreground/80 mb-6 italic leading-relaxed">
+            <div className="group animate-fade-in md:mt-24">
+              <div className="border-l-4 border-accent/40 pl-6 py-4 hover:border-accent transition-colors duration-300">
+                <p className="text-xl text-foreground/80 mb-8 leading-relaxed italic">
                   "Fast, structured, and grounded in the realities of a growing business. Exactly what we needed."
                 </p>
-                <p className="text-sm font-medium">R.K.</p>
-              </CardContent>
-            </Card>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+                    <span className="text-sm font-semibold text-accent">RK</span>
+                  </div>
+                  <p className="text-sm font-medium text-foreground/60">R.K.</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact/CTA Section */}
-      <section id="contact" className="relative py-24 px-6">
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="mb-4">Ready to streamline your operations?</h2>
-            <p className="text-lg text-foreground/70">
+      {/* Contact/CTA Section - Sophisticated Minimal */}
+      <section id="contact" className="relative py-32 px-6">
+        <div className="absolute inset-0 flex justify-center">
+          <div className="w-full max-w-6xl bg-black/25 backdrop-blur-sm"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-3xl mx-auto">
+          <div className="text-center mb-16 animate-fade-in">
+            <div className="inline-block mb-6">
+              <span className="text-sm font-medium text-primary tracking-[0.2em] uppercase">
+                Let's Talk
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2] mb-6">
+              Ready to streamline<br />your operations?
+            </h2>
+            <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
               Let's build systems that help your business move with clarity.
             </p>
           </div>
 
-          <Card className="border-primary/20 bg-background/95 backdrop-blur-sm">
-            <CardContent className="p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <Label htmlFor="name">Name</Label>
-                  <Input
-                    id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    required
-                    className="mt-2"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="email">Email</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    className="mt-2"
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="message">Message</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    rows={5}
-                    className="mt-2"
-                  />
-                </div>
-                <Button type="submit" className="w-full" size="lg">
-                  Start the conversation
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
+          <div className="bg-background/40 backdrop-blur-md border border-primary/20 rounded-lg p-8 md:p-12 shadow-2xl">
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div className="space-y-2">
+                <Label htmlFor="name" className="text-sm font-medium text-foreground/80">Name</Label>
+                <Input
+                  id="name"
+                  value={formData.name}
+                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                  required
+                  className="bg-background/60 border-primary/20 focus:border-primary"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="text-sm font-medium text-foreground/80">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={formData.email}
+                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                  required
+                  className="bg-background/60 border-primary/20 focus:border-primary"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="message" className="text-sm font-medium text-foreground/80">Message</Label>
+                <Textarea
+                  id="message"
+                  value={formData.message}
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  required
+                  rows={6}
+                  className="bg-background/60 border-primary/20 focus:border-primary resize-none"
+                />
+              </div>
+              <Button type="submit" className="w-full" size="lg">
+                Start the conversation
+              </Button>
+            </form>
+          </div>
         </div>
       </section>
     </Layout>
