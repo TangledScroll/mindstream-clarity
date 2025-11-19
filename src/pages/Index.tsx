@@ -23,7 +23,7 @@ const Index = () => {
 
   return (
     <Layout>
-      <div className="fixed inset-0 -z-10">
+      <div className="fixed inset-0 z-0">
         <Grid 
           direction="diagonal" 
           speed={1.5} 
@@ -34,8 +34,8 @@ const Index = () => {
       </div>
       
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-20">
-        <div className="max-w-7xl mx-auto px-6 py-24">
+      <section className="relative z-10 min-h-screen flex items-center pt-20 pointer-events-none">
+        <div className="max-w-7xl mx-auto px-6 py-24 pointer-events-auto">
           <div className="max-w-3xl animate-fade-in">
             <h1 className="mb-6 text-foreground">
               Clarity that cuts through noise
@@ -51,14 +51,14 @@ const Index = () => {
       </section>
 
       {/* Services Section - Sophisticated Layered Design */}
-      <section className="relative min-h-screen py-32">
+      <section className="relative z-10 min-h-screen py-32 pointer-events-none">
         {/* Translucent Center Overlay */}
-        <div className="absolute inset-0 flex justify-center">
+        <div className="absolute inset-0 flex justify-center pointer-events-none">
           <div className="w-full max-w-6xl bg-black/30 backdrop-blur-sm"></div>
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 max-w-5xl mx-auto px-8">
+        <div className="relative z-10 max-w-5xl mx-auto px-8 pointer-events-auto">
           {/* Section Header */}
           <div className="mb-32 animate-fade-in">
             <div className="flex items-baseline gap-6 mb-6">
@@ -147,12 +147,12 @@ const Index = () => {
       </section>
 
       {/* About Section - Minimal Statement */}
-      <section className="relative py-32 px-6">
-        <div className="absolute inset-0 flex justify-center">
+      <section className="relative z-10 py-32 px-6 pointer-events-none">
+        <div className="absolute inset-0 flex justify-center pointer-events-none">
           <div className="w-full max-w-6xl bg-black/20 backdrop-blur-sm"></div>
         </div>
         
-        <div className="relative z-10 max-w-4xl mx-auto">
+        <div className="relative z-10 max-w-4xl mx-auto pointer-events-auto">
           <div className="text-center space-y-12 animate-fade-in">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2]">
               Built for clarity.<br />Driven by precision.
@@ -172,8 +172,8 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section - Refined Layout */}
-      <section className="relative py-32 px-6">
-        <div className="max-w-7xl mx-auto">
+      <section className="relative z-10 py-32 px-6 pointer-events-none">
+        <div className="max-w-7xl mx-auto pointer-events-auto">
           <div className="mb-20 animate-fade-in">
             <div className="flex items-baseline gap-6 mb-6">
               <span className="text-sm font-medium text-primary tracking-[0.2em] uppercase">
@@ -231,12 +231,12 @@ const Index = () => {
       </section>
 
       {/* Contact/CTA Section - Sophisticated Minimal */}
-      <section id="contact" className="relative py-32 px-6">
-        <div className="absolute inset-0 flex justify-center">
+      <section id="contact" className="relative z-10 py-32 px-6 pointer-events-none">
+        <div className="absolute inset-0 flex justify-center pointer-events-none">
           <div className="w-full max-w-6xl bg-black/25 backdrop-blur-sm"></div>
         </div>
         
-        <div className="relative z-10 max-w-3xl mx-auto">
+        <div className="relative z-10 max-w-3xl mx-auto pointer-events-auto">
           <div className="text-center mb-16 animate-fade-in">
             <div className="inline-block mb-6">
               <span className="text-sm font-medium text-primary tracking-[0.2em] uppercase">
