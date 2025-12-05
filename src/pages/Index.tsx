@@ -35,7 +35,7 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative z-10 min-h-screen flex items-center pt-20 pointer-events-none">
-        <div className="max-w-7xl mx-auto px-6 py-24 pointer-events-auto">
+        <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="max-w-3xl animate-fade-in">
             <h1 className="mb-6 text-foreground">
               Clarity that cuts through noise
@@ -43,7 +43,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl leading-relaxed">
               Mindstream Solutions builds intelligent systems that remove friction, sharpen operations, and give your business space to think.
             </p>
-            <Button size="lg" className="text-base" asChild>
+            <Button size="lg" className="text-base pointer-events-auto" asChild>
               <a href="#contact">Build with precision</a>
             </Button>
           </div>
@@ -52,13 +52,13 @@ const Index = () => {
 
       {/* Services Section - Sophisticated Layered Design */}
       <section className="relative z-10 min-h-screen py-32 pointer-events-none">
-        {/* Translucent Center Overlay */}
+        {/* Translucent Center Overlay - rounded top corners, gradient bottom */}
         <div className="absolute inset-0 flex justify-center pointer-events-none">
-          <div className="w-full max-w-6xl bg-black/30 backdrop-blur-sm"></div>
+          <div className="w-full max-w-6xl rounded-t-3xl bg-gradient-to-b from-black/30 via-black/30 to-black/20 backdrop-blur-sm"></div>
         </div>
 
         {/* Content Container */}
-        <div className="relative z-10 max-w-5xl mx-auto px-8 pointer-events-auto">
+        <div className="relative z-10 max-w-5xl mx-auto px-8">
           {/* Section Header */}
           <div className="mb-32 animate-fade-in">
             <div className="flex items-baseline gap-6 mb-6">
@@ -146,13 +146,13 @@ const Index = () => {
         </div>
       </section>
 
-      {/* About Section - Minimal Statement */}
-      <section className="relative z-10 py-32 px-6 pointer-events-none">
+      {/* About Section - Minimal Statement - seamlessly connected to Services */}
+      <section className="relative z-10 py-32 px-6 pointer-events-none -mt-1">
         <div className="absolute inset-0 flex justify-center pointer-events-none">
-          <div className="w-full max-w-6xl bg-black/20 backdrop-blur-sm"></div>
+          <div className="w-full max-w-6xl rounded-b-3xl bg-gradient-to-b from-black/20 to-black/20 backdrop-blur-sm"></div>
         </div>
         
-        <div className="relative z-10 max-w-4xl mx-auto pointer-events-auto">
+        <div className="relative z-10 max-w-4xl mx-auto">
           <div className="text-center space-y-12 animate-fade-in">
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-light leading-[1.2]">
               Built for clarity.<br />Driven by precision.
@@ -173,7 +173,7 @@ const Index = () => {
 
       {/* Testimonials Section - Refined Layout */}
       <section className="relative z-10 py-32 px-6 pointer-events-none">
-        <div className="max-w-7xl mx-auto pointer-events-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="mb-20 animate-fade-in">
             <div className="flex items-baseline gap-6 mb-6">
               <span className="text-sm font-medium text-primary tracking-[0.2em] uppercase">
@@ -233,10 +233,10 @@ const Index = () => {
       {/* Contact/CTA Section - Sophisticated Minimal */}
       <section id="contact" className="relative z-10 py-32 px-6 pointer-events-none">
         <div className="absolute inset-0 flex justify-center pointer-events-none">
-          <div className="w-full max-w-6xl bg-black/25 backdrop-blur-sm"></div>
+          <div className="w-full max-w-6xl rounded-3xl bg-black/25 backdrop-blur-sm"></div>
         </div>
         
-        <div className="relative z-10 max-w-3xl mx-auto pointer-events-auto">
+        <div className="relative z-10 max-w-3xl mx-auto">
           <div className="text-center mb-16 animate-fade-in">
             <div className="inline-block mb-6">
               <span className="text-sm font-medium text-primary tracking-[0.2em] uppercase">
@@ -260,7 +260,7 @@ const Index = () => {
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                   required
-                  className="bg-background/60 border-primary/20 focus:border-primary"
+                  className="bg-background/60 border-primary/20 focus:border-primary pointer-events-auto"
                 />
               </div>
               <div className="space-y-2">
@@ -271,7 +271,7 @@ const Index = () => {
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   required
-                  className="bg-background/60 border-primary/20 focus:border-primary"
+                  className="bg-background/60 border-primary/20 focus:border-primary pointer-events-auto"
                 />
               </div>
               <div className="space-y-2">
@@ -282,10 +282,10 @@ const Index = () => {
                   onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   required
                   rows={6}
-                  className="bg-background/60 border-primary/20 focus:border-primary resize-none"
+                  className="bg-background/60 border-primary/20 focus:border-primary resize-none pointer-events-auto"
                 />
               </div>
-              <Button type="submit" className="w-full" size="lg">
+              <Button type="submit" className="w-full pointer-events-auto" size="lg">
                 Start the conversation
               </Button>
             </form>
