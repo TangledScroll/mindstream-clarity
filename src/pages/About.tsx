@@ -1,4 +1,4 @@
-import { GradientBlinds } from '@/components/GradientBlinds';
+import Cubes from '@/components/Cubes';
 import { Layout } from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -24,9 +24,18 @@ const About = () => {
 
   return (
     <Layout>
-      <GradientBlinds />
+      <Cubes 
+        gridSize={12}
+        maxAngle={35}
+        radius={4}
+        faceColor="#FEF6EB"
+        borderStyle="1px solid rgba(81, 53, 101, 0.2)"
+        rippleColor="rgba(81, 53, 101, 0.12)"
+        autoAnimate={true}
+        cellGap={0}
+      />
       
-      <section className="relative min-h-screen pt-32 pb-24 px-6">
+      <section className="relative z-10 min-h-screen pt-32 pb-24 px-6 pointer-events-none">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16 animate-fade-in">
             <h1 className="mb-8">Designed for clarity. Engineered for performance.</h1>
@@ -46,9 +55,9 @@ const About = () => {
             
             <div className="space-y-6">
               {timeline.map((item, index) => (
-                <Card 
+              <Card 
                   key={index}
-                  className="border-primary/20 bg-background/95 backdrop-blur-sm hover:shadow-lg transition-all"
+                  className="border-primary/20 bg-background/95 backdrop-blur-sm hover:shadow-lg transition-all pointer-events-auto"
                 >
                   <CardContent className="p-8">
                     <div className="flex items-start gap-6">
@@ -67,7 +76,7 @@ const About = () => {
           </div>
 
           <div className="mt-24 text-center">
-            <Card className="border-secondary/20 bg-background/95 backdrop-blur-sm">
+            <Card className="border-secondary/20 bg-background/95 backdrop-blur-sm pointer-events-auto">
               <CardContent className="p-12">
                 <h3 className="text-2xl mb-4">Our Approach</h3>
                 <p className="text-lg text-foreground/70 leading-relaxed max-w-2xl mx-auto">
