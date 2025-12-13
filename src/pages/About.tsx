@@ -25,14 +25,15 @@ const About = () => {
   return (
     <Layout>
       <Cubes 
-        gridSize={12}
+        gridSize={20}
+        cubeSize={60}
         maxAngle={35}
         radius={4}
         faceColor="#FEF6EB"
         borderStyle="1px solid rgba(81, 53, 101, 0.2)"
         rippleColor="rgba(81, 53, 101, 0.12)"
         autoAnimate={true}
-        cellGap={0}
+        cellGap={{ row: 8, col: 8 }}
       />
       
       <section className="relative z-10 min-h-screen pt-32 pb-24 px-6 pointer-events-none">
