@@ -38,10 +38,10 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 py-24">
           <div className="max-w-3xl animate-fade-in">
             <h1 className="mb-6 text-foreground">
-              Clarity that cuts through noise
+              Operational clarity, built properly
             </h1>
             <p className="text-xl md:text-2xl text-foreground/80 mb-8 max-w-2xl leading-relaxed">
-              Mindstream Solutions builds intelligent systems that remove friction, sharpen operations, and give your business space to think.
+              Mindstream Solutions builds systems that handle the busywork, so your team can focus on what actually matters.
             </p>
             <Button size="lg" className="text-base pointer-events-auto" asChild>
               <a href="#contact">Build with precision</a>
@@ -88,10 +88,10 @@ const Index = () => {
               <div className="md:col-span-7 md:pt-12">
                 <div className="border-l-2 border-primary/20 pl-8 group-hover:border-primary/60 transition-colors duration-300">
                   <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-6">
-                    We design, streamline, and automate your operational workflows with clarity and precision.
+                    We design and automate operational workflows so they run consistently, with fewer manual steps and fewer points of failure.
                   </p>
                   <p className="text-base text-foreground/60 leading-relaxed">
-                    The result: fewer manual steps, fewer errors, and a system that scales without slowing down.
+                    The result: fewer errors, less manual work, and systems that scale without slowing you down.
                   </p>
                 </div>
               </div>
@@ -111,10 +111,10 @@ const Index = () => {
               <div className="md:col-span-7 md:pt-12">
                 <div className="border-l-2 border-secondary/20 pl-8 group-hover:border-secondary/60 transition-colors duration-300">
                   <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-6">
-                    Strategic use of AI to enhance decision-making, accelerate tasks, and provide insight where it matters.
+                    We apply AI where it makes practical sense. Speeding up repeatable tasks, supporting decisions, and reducing cognitive load.
                   </p>
                   <p className="text-base text-foreground/60 leading-relaxed">
-                    Always grounded. Always practical.
+                    Practical by design. Built to be used.
                   </p>
                 </div>
               </div>
@@ -134,7 +134,7 @@ const Index = () => {
               <div className="md:col-span-7 md:pt-12">
                 <div className="border-l-2 border-accent/20 pl-8 group-hover:border-accent/60 transition-colors duration-300">
                   <p className="text-lg md:text-xl text-foreground/80 leading-relaxed mb-6">
-                    Your data shouldn't slow you down. We organise, structure, and visualise it so you always know what's happening.
+                    Your data shouldn't slow you down. We structure and surface it so you can see what's happening without digging.
                   </p>
                   <p className="text-base text-foreground/60 leading-relaxed">
                     And what to do next.
@@ -188,7 +188,7 @@ const Index = () => {
             <div className="group animate-fade-in">
               <div className="border-l-4 border-primary/30 pl-6 py-4 hover:border-primary transition-colors duration-300">
                 <p className="text-xl text-foreground/80 mb-8 leading-relaxed italic">
-                  "Mindstream didn't just fix our workflow. They rebuilt it into something that finally makes sense."
+                  "Mindstream didn't just fix our workflow — they rebuilt it into something that finally works."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
@@ -202,7 +202,7 @@ const Index = () => {
             <div className="group animate-fade-in md:mt-12">
               <div className="border-l-4 border-secondary/30 pl-6 py-4 hover:border-secondary transition-colors duration-300">
                 <p className="text-xl text-foreground/80 mb-8 leading-relaxed italic">
-                  "Elegant systems. Clear thinking. Zero friction. Working with them changed how we operate day to day."
+                  "Clear thinking, well-built systems, and no unnecessary complexity. Working with them changed how we operate day to day."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center">
@@ -247,7 +247,7 @@ const Index = () => {
               Ready to streamline<br />your operations?
             </h2>
             <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-              Let's build systems that help your business move with clarity.
+              Let's build systems that remove friction and scale cleanly.
             </p>
           </div>
 

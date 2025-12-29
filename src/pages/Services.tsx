@@ -1,4 +1,4 @@
-import { GradientBlinds } from '@/components/GradientBlinds';
+import Grid from '@/components/Grid';
 import { Layout } from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -25,7 +25,15 @@ const Services = () => {
 
   return (
     <Layout>
-      <GradientBlinds />
+      <div className="fixed inset-0 z-0">
+        <Grid 
+          direction="diagonal" 
+          speed={1.5} 
+          borderColor="rgba(81, 53, 101, 0.15)" 
+          squareSize={60}
+          hoverFillColor="rgba(81, 53, 101, 0.08)"
+        />
+      </div>
       
       <section className="relative min-h-screen pt-32 pb-24 px-6">
         <div className="max-w-5xl mx-auto">
