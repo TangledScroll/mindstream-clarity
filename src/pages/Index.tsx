@@ -161,7 +161,7 @@ const Index = () => {
             <div className="h-px w-24 bg-primary mx-auto"></div>
             
             <p className="text-xl md:text-2xl text-foreground/70 leading-relaxed max-w-3xl mx-auto">
-              Mindstream Solutions was created to bring structure to chaos. We design systems that replace clutter with clarity — systems that think, adapt, and elevate the way businesses operate.
+              Mindstream Solutions exists to bring structure to complex operations. We design systems that replace fragmented processes with clear, reliable workflows built for real-world use.
             </p>
             
             <p className="text-lg font-medium text-foreground/90 pt-8">
@@ -188,7 +188,7 @@ const Index = () => {
             <div className="group animate-fade-in">
               <div className="border-l-4 border-primary/30 pl-6 py-4 hover:border-primary transition-colors duration-300">
                 <p className="text-xl text-foreground/80 mb-8 leading-relaxed italic">
-                  "Mindstream didn't just fix our workflow — they rebuilt it into something that finally works."
+                  "Mindstream didn't just fix our workflow. They rebuilt it into something that finally works."
                 </p>
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
