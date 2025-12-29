@@ -1,4 +1,4 @@
-import Cubes from '@/components/Cubes';
+import Grid from '@/components/Grid';
 import { Layout } from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 
@@ -24,17 +24,15 @@ const About = () => {
 
   return (
     <Layout>
-      <Cubes 
-        gridSize={20}
-        cubeSize={60}
-        maxAngle={35}
-        radius={4}
-        faceColor="#FEF6EB"
-        borderStyle="1px solid rgba(81, 53, 101, 0.2)"
-        rippleColor="rgba(81, 53, 101, 0.12)"
-        autoAnimate={true}
-        cellGap={{ row: 8, col: 8 }}
-      />
+      <div className="fixed inset-0 z-0">
+        <Grid 
+          direction="diagonal" 
+          speed={1.5} 
+          borderColor="rgba(81, 53, 101, 0.15)" 
+          squareSize={60}
+          hoverFillColor="rgba(81, 53, 101, 0.08)"
+        />
+      </div>
       
       <section className="relative z-10 min-h-screen pt-32 pb-24 px-6 pointer-events-none">
         <div className="max-w-4xl mx-auto">
