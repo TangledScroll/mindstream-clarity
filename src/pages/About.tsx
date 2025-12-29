@@ -37,10 +37,10 @@ function useInViewList(count: number, options?: IntersectionObserverInit) {
 }
 
 const timelineData = [
-  { title: 'Foundation', description: 'Founded with a focus on operational clarity.' },
-  { title: 'Growth', description: 'Built systems for high-growth teams.' },
-  { title: 'Innovation', description: 'Expanded into AI-driven workflow intelligence.' },
-  { title: 'Evolution', description: 'Continually refining business automation.' },
+  { title: 'Foundation', description: 'Started with one goal: make operations simpler and more reliable.' },
+  { title: 'Delivery', description: 'Built automation systems for teams moving fast, without breaking processes.' },
+  { title: 'Applied AI', description: 'Applied AI where it made sense: speed, accuracy, and decision support.' },
+  { title: 'Refinement', description: 'Refining systems over time so they stay useful as the business changes.' },
 ];
 
 const About = () => {
@@ -64,14 +64,14 @@ const About = () => {
       <section className="relative z-10 min-h-screen pt-32 pb-24 px-6 pointer-events-none">
         <div className="max-w-4xl mx-auto">
           <div className="mb-16 animate-fade-in">
-            <h1 className="mb-8">Designed for clarity. Engineered for performance.</h1>
+            <h1 className="mb-8">Built for operational clarity. Engineered for performance.</h1>
             
             <div className="space-y-6 text-lg text-foreground/80 leading-relaxed">
               <p>
-                Mindstream Solutions exists to bring structure to complexity. We design automated systems that think with you — not against you. Every workflow is rebuilt with precision, clarity, and measurable impact.
+                Mindstream Solutions exists to bring structure to complex operations. We design automated systems that support how your team actually works. Every workflow is rebuilt to reduce friction, improve reliability, and deliver measurable impact.
               </p>
               <p>
-                Our philosophy is simple: remove friction, remove noise, and build processes that let smart people move faster. Tools should enhance your thinking, not distract from it.
+                Our philosophy is simple: remove friction, remove noise, and build processes that let smart people move faster. Tools should reduce busywork, not create more of it.
               </p>
             </div>
           </div>
@@ -79,43 +79,69 @@ const About = () => {
           <div className="mt-24">
             <h2 className="mb-12 text-center">Our Journey</h2>
             
-            {/* Timeline container with spine */}
+            {/* Timeline container with centered spine */}
             <div className="relative">
-              {/* Vertical spine line */}
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-primary/30" />
+              {/* Centered vertical spine line */}
+              <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-primary/30" />
               
-              <div className="space-y-8">
-                {timelineData.map((item, index) => (
-                  <div
-                    key={index}
-                    ref={setRef(index)}
-                    data-index={index}
-                    className={`relative pl-16 transition-all duration-700 ease-out ${
-                      inView[index] 
-                        ? 'opacity-100 translate-y-0 blur-0' 
-                        : 'opacity-0 translate-y-8 blur-[2px]'
-                    }`}
-                    style={{ transitionDelay: `${index * 80}ms` }}
-                  >
-                    {/* Milestone dot */}
-                    <div className="absolute left-4 top-8 w-5 h-5 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center z-10">
-                      <div className="w-2 h-2 rounded-full bg-primary" />
-                    </div>
-                    
-                    {/* Timeline Card with hover effects */}
-                    <Card 
-                      className="border-primary/20 bg-background/95 backdrop-blur-sm pointer-events-auto
-                        transition-all duration-300 ease-out
-                        hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(81,53,101,0.3)] hover:border-primary/50"
-                      style={{ transformOrigin: 'left center' }}
+              <div className="space-y-12">
+                {timelineData.map((item, index) => {
+                  const isLeft = index % 2 === 0;
+                  return (
+                    <div
+                      key={index}
+                      ref={setRef(index)}
+                      data-index={index}
+                      className={`relative flex items-center transition-all duration-700 ease-out ${
+                        inView[index] 
+                          ? 'opacity-100 translate-x-0 blur-0' 
+                          : `opacity-0 ${isLeft ? '-translate-x-8' : 'translate-x-8'} blur-[2px]`
+                      }`}
+                      style={{ transitionDelay: `${index * 80}ms` }}
                     >
-                      <CardContent className="p-8">
-                        <h3 className="text-xl mb-2">{item.title}</h3>
-                        <p className="text-foreground/70">{item.description}</p>
-                      </CardContent>
-                    </Card>
-                  </div>
-                ))}
+                      {/* Left side content */}
+                      <div className={`w-5/12 ${isLeft ? 'pr-8' : ''}`}>
+                        {isLeft && (
+                          <Card 
+                            className="border-primary/20 bg-background/95 backdrop-blur-sm pointer-events-auto
+                              transition-all duration-300 ease-out
+                              hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(81,53,101,0.3)] hover:border-primary/50"
+                            style={{ transformOrigin: 'right center' }}
+                          >
+                            <CardContent className="p-8">
+                              <h3 className="text-xl mb-2 text-right">{item.title}</h3>
+                              <p className="text-foreground/70 text-right">{item.description}</p>
+                            </CardContent>
+                          </Card>
+                        )}
+                      </div>
+                      
+                      {/* Center milestone dot */}
+                      <div className="w-2/12 flex justify-center">
+                        <div className="w-5 h-5 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center z-10">
+                          <div className="w-2 h-2 rounded-full bg-primary" />
+                        </div>
+                      </div>
+                      
+                      {/* Right side content */}
+                      <div className={`w-5/12 ${!isLeft ? 'pl-8' : ''}`}>
+                        {!isLeft && (
+                          <Card 
+                            className="border-primary/20 bg-background/95 backdrop-blur-sm pointer-events-auto
+                              transition-all duration-300 ease-out
+                              hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(81,53,101,0.3)] hover:border-primary/50"
+                            style={{ transformOrigin: 'left center' }}
+                          >
+                            <CardContent className="p-8">
+                              <h3 className="text-xl mb-2">{item.title}</h3>
+                              <p className="text-foreground/70">{item.description}</p>
+                            </CardContent>
+                          </Card>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -125,7 +151,7 @@ const About = () => {
               <CardContent className="p-12">
                 <h3 className="text-2xl mb-4">Our Approach</h3>
                 <p className="text-lg text-foreground/70 leading-relaxed max-w-2xl mx-auto">
-                  Every project begins with deep analysis. We map your operations, identify friction points, and design systems that eliminate waste. The result is clarity at scale — workflows that make sense, teams that move faster, and businesses that operate with confidence.
+                  Every project starts with understanding how work actually moves through your business. We map the workflow, find the friction, and redesign the system so it runs cleanly. The result: workflows that make sense, teams that move faster, and operations you can trust.
                 </p>
               </CardContent>
             </Card>
