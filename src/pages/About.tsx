@@ -1,26 +1,53 @@
+import { useEffect, useRef, useState } from 'react';
 import Grid from '@/components/Grid';
 import { Layout } from '@/components/Layout';
 import { Card, CardContent } from '@/components/ui/card';
 
+function useInViewList(count: number, options?: IntersectionObserverInit) {
+  const refs = useRef<(HTMLElement | null)[]>([]);
+  const [inView, setInView] = useState<boolean[]>(() => Array(count).fill(false));
+
+  useEffect(() => {
+    setInView(Array(count).fill(false));
+    refs.current = refs.current.slice(0, count);
+
+    const observer = new IntersectionObserver((entries) => {
+      setInView((prev) => {
+        const next = [...prev];
+        for (const entry of entries) {
+          const idx = Number(entry.target.getAttribute('data-index'));
+          if (!Number.isNaN(idx) && entry.isIntersecting) {
+            next[idx] = true;
+          }
+        }
+        return next;
+      });
+    }, options ?? { threshold: 0.3, rootMargin: '0px' });
+
+    refs.current.forEach((el) => el && observer.observe(el));
+
+    return () => observer.disconnect();
+  }, [count]);
+
+  const setRef = (index: number) => (el: HTMLElement | null) => {
+    refs.current[index] = el;
+  };
+
+  return { inView, setRef };
+}
+
+const timelineData = [
+  { title: 'Foundation', description: 'Founded with a focus on operational clarity.' },
+  { title: 'Growth', description: 'Built systems for high-growth teams.' },
+  { title: 'Innovation', description: 'Expanded into AI-driven workflow intelligence.' },
+  { title: 'Evolution', description: 'Continually refining business automation.' },
+];
+
 const About = () => {
-  const timeline = [
-    {
-      title: 'Foundation',
-      description: 'Founded with a focus on operational clarity',
-    },
-    {
-      title: 'Growth',
-      description: 'Built systems for high-growth teams',
-    },
-    {
-      title: 'Innovation',
-      description: 'Expanded into AI-driven workflow intelligence',
-    },
-    {
-      title: 'Evolution',
-      description: 'Continually refining the foundation of business automation',
-    },
-  ];
+  const { inView, setRef } = useInViewList(timelineData.length, { 
+    threshold: 0.3, 
+    rootMargin: '0px 0px -10% 0px' 
+  });
 
   return (
     <Layout>
@@ -52,25 +79,44 @@ const About = () => {
           <div className="mt-24">
             <h2 className="mb-12 text-center">Our Journey</h2>
             
-            <div className="space-y-6">
-              {timeline.map((item, index) => (
-              <Card 
-                  key={index}
-                  className="border-primary/20 bg-background/95 backdrop-blur-sm hover:shadow-lg transition-all pointer-events-auto"
-                >
-                  <CardContent className="p-8">
-                    <div className="flex items-start gap-6">
-                      <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <div className="w-3 h-3 rounded-full bg-primary"></div>
-                      </div>
-                      <div>
+            {/* Timeline container with spine */}
+            <div className="relative">
+              {/* Vertical spine line */}
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-primary/30" />
+              
+              <div className="space-y-8">
+                {timelineData.map((item, index) => (
+                  <div
+                    key={index}
+                    ref={setRef(index)}
+                    data-index={index}
+                    className={`relative pl-16 transition-all duration-700 ease-out ${
+                      inView[index] 
+                        ? 'opacity-100 translate-y-0 blur-0' 
+                        : 'opacity-0 translate-y-8 blur-[2px]'
+                    }`}
+                    style={{ transitionDelay: `${index * 80}ms` }}
+                  >
+                    {/* Milestone dot */}
+                    <div className="absolute left-4 top-8 w-5 h-5 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center z-10">
+                      <div className="w-2 h-2 rounded-full bg-primary" />
+                    </div>
+                    
+                    {/* Timeline Card with hover effects */}
+                    <Card 
+                      className="border-primary/20 bg-background/95 backdrop-blur-sm pointer-events-auto
+                        transition-all duration-300 ease-out
+                        hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(81,53,101,0.3)] hover:border-primary/50"
+                      style={{ transformOrigin: 'left center' }}
+                    >
+                      <CardContent className="p-8">
                         <h3 className="text-xl mb-2">{item.title}</h3>
                         <p className="text-foreground/70">{item.description}</p>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
+                      </CardContent>
+                    </Card>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
