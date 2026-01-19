@@ -1,116 +1,273 @@
+import { useState } from 'react';
 import Grid from '@/components/Grid';
 import { Layout } from '@/components/Layout';
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import SpotlightCard from '@/components/SpotlightCard';
+import ServiceDetailModal from '@/components/ServiceDetailModal';
+
+interface ServiceCard {
+  id: number;
+  title: string;
+  description: string;
+  bullets: string[];
+  expanded: {
+    title: string;
+    whoFor: string;
+    whatWeDo: string;
+    useCases: string[];
+    howItWorks: string[];
+    outcome: string;
+  };
+}
+
+const servicesData: ServiceCard[] = [
+  {
+    id: 1,
+    title: 'Operational Automation',
+    description: 'Remove repetitive manual work and make everyday processes run reliably.',
+    bullets: [
+      'Replace manual admin with automated workflows',
+      'Reduce errors, delays, and handoffs',
+      'Systems that run in the background without babysitting',
+    ],
+    expanded: {
+      title: 'Operational Automation',
+      whoFor: 'Teams spending too much time on repetitive tasks, internal admin, or manual coordination.',
+      whatWeDo: 'We design and build automation that replaces day-to-day operational work with reliable systems. This includes internal processes, notifications, approvals, syncs, and background jobs that run consistently without human intervention.',
+      useCases: [
+        'Internal task and approval workflows',
+        'Notifications, reminders, and status updates',
+        'Data syncing between tools',
+        'Scheduled checks, updates, and housekeeping tasks',
+      ],
+      howItWorks: [
+        'Map the current manual process',
+        'Identify failure points and inefficiencies',
+        'Design a clean automation flow',
+        'Build, test, and deploy',
+        'Monitor and refine',
+      ],
+      outcome: 'Less admin. Fewer mistakes. Operations that don\'t rely on memory or manual effort.',
+    },
+  },
+  {
+    id: 2,
+    title: 'Data Flow and Processing',
+    description: 'Clean, structured, and reliable data across your systems.',
+    bullets: [
+      'Ingest, clean, and normalise data',
+      'Deduplication and enrichment',
+      'Reliable data movement between tools',
+    ],
+    expanded: {
+      title: 'Data Flow and Processing',
+      whoFor: 'Teams dealing with messy, duplicated, or inconsistent data across multiple platforms.',
+      whatWeDo: 'We build data pipelines that collect, clean, enrich, and move data between systems in a predictable and controlled way. This ensures your data is usable, trustworthy, and aligned across tools.',
+      useCases: [
+        'Importing data from multiple sources',
+        'Deduplicating and cleaning records',
+        'Enriching data with external sources',
+        'Scheduled or event-based data syncs',
+      ],
+      howItWorks: [
+        'Define data sources and destinations',
+        'Design a consistent data structure',
+        'Build transformation and validation logic',
+        'Implement error handling and logging',
+        'Deploy and monitor data health',
+      ],
+      outcome: 'Accurate data you can actually rely on, without manual cleanup.',
+    },
+  },
+  {
+    id: 3,
+    title: 'Systems Integration and Architecture',
+    description: 'Designing how your tools work together before anything is built.',
+    bullets: [
+      'API-based integrations',
+      'Event-driven system design',
+      'Scalable, documented architecture',
+    ],
+    expanded: {
+      title: 'Systems Integration and Architecture',
+      whoFor: 'Teams using multiple tools that don\'t communicate cleanly, or systems that have grown without a clear structure.',
+      whatWeDo: 'We design and implement the architecture that connects your tools into a coherent system. This includes how data moves, how events trigger actions, and how failures are handled.',
+      useCases: [
+        'Tool-to-tool integrations',
+        'Event-triggered workflows',
+        'Permission and access control design',
+        'System documentation and handover',
+      ],
+      howItWorks: [
+        'Review existing tools and workflows',
+        'Design a scalable integration architecture',
+        'Define triggers, flows, and fallbacks',
+        'Build and test integrations',
+        'Document and hand over the system',
+      ],
+      outcome: 'A system that\'s designed, not duct-taped.',
+    },
+  },
+  {
+    id: 4,
+    title: 'AI-Enabled Workflows',
+    description: 'Practical AI built into real systems. Not bolted on.',
+    bullets: [
+      'AI used where it saves time',
+      'Human-in-the-loop by design',
+      'Guardrails and control built in',
+    ],
+    expanded: {
+      title: 'AI-Enabled Workflows',
+      whoFor: 'Teams wanting to use AI safely and usefully inside existing workflows.',
+      whatWeDo: 'We integrate AI into operational systems where it genuinely reduces workload. This includes classification, summarisation, drafting, and decision support, always with oversight and control.',
+      useCases: [
+        'Email or ticket classification',
+        'Content and report drafting',
+        'Summarising meetings or documents',
+        'Internal knowledge workflows',
+      ],
+      howItWorks: [
+        'Identify high-impact AI opportunities',
+        'Define boundaries and human oversight',
+        'Integrate AI into workflows',
+        'Add logging, versioning, and rollback',
+        'Test and refine usage',
+      ],
+      outcome: 'AI that supports your team instead of creating risk or noise.',
+    },
+  },
+  {
+    id: 5,
+    title: 'Revenue and Pipeline Systems',
+    description: 'Reliable lead handling, follow-ups, and visibility.',
+    bullets: [
+      'Lead capture and routing',
+      'CRM lifecycle automation',
+      'Outreach and follow-up systems',
+    ],
+    expanded: {
+      title: 'Revenue and Pipeline Systems',
+      whoFor: 'Businesses losing leads, missing follow-ups, or lacking visibility into their pipeline.',
+      whatWeDo: 'We build systems that manage leads and opportunities from first contact through to close, ensuring nothing falls through the cracks.',
+      useCases: [
+        'Lead capture and qualification',
+        'CRM automation and hygiene',
+        'Outreach and follow-up sequences',
+        'Pipeline reporting and visibility',
+      ],
+      howItWorks: [
+        'Map your revenue lifecycle',
+        'Define rules for routing and follow-ups',
+        'Build automation around the CRM',
+        'Add reporting and alerts',
+        'Monitor and improve over time',
+      ],
+      outcome: 'Consistent follow-up, clearer pipelines, and fewer missed opportunities.',
+    },
+  },
+  {
+    id: 6,
+    title: 'Ongoing Optimisation and Support',
+    description: 'Keeping systems healthy as your business evolves.',
+    bullets: [
+      'Monitoring and maintenance',
+      'Incremental improvements',
+      'Long-term system support',
+    ],
+    expanded: {
+      title: 'Ongoing Optimisation and Support',
+      whoFor: 'Teams who want systems that improve over time, not break quietly.',
+      whatWeDo: 'We provide ongoing support, monitoring, and optimisation for the systems we build. This ensures reliability, performance, and adaptability as your business changes.',
+      useCases: [
+        'System monitoring and alerts',
+        'Workflow improvements',
+        'New automation requests',
+        'Performance and cost optimisation',
+      ],
+      howItWorks: [
+        'Continuous monitoring',
+        'Regular reviews and improvements',
+        'Rapid response to issues',
+        'Strategic system evolution',
+      ],
+      outcome: 'Systems that stay reliable and relevant long after launch.',
+    },
+  },
+];
 
 const Services = () => {
-  const services = [
-    {
-      title: 'Automation Architecture',
-      description: 'We map, rebuild, and automate your operational systems from the ground up. Every workflow is analysed, optimised, and reconstructed using intelligent, scalable logic. The outcome is simple: consistency without chaos.',
-      color: 'primary',
-    },
-    {
-      title: 'AI-Driven Processes',
-      description: 'From decision support to intelligent routing, we implement AI where it genuinely strengthens your operations. No gimmicks. No over-complication. Just practical intelligence applied with precision.',
-      color: 'secondary',
-    },
-    {
-      title: 'Data Simplification & Clarity',
-      description: 'Your data should work for you — not drown you. We organise, structure, and visualise information so your team makes faster, sharper decisions with absolute confidence.',
-      color: 'accent',
-    },
-  ];
+  const [selectedService, setSelectedService] = useState<ServiceCard | null>(null);
+
+  const handleCardClick = (service: ServiceCard) => {
+    setSelectedService(service);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedService(null);
+  };
 
   return (
     <Layout>
       <div className="fixed inset-0 z-0">
-        <Grid 
-          direction="diagonal" 
-          speed={1.5} 
-          borderColor="rgba(81, 53, 101, 0.15)" 
+        <Grid
+          direction="diagonal"
+          speed={1.5}
+          borderColor="rgba(81, 53, 101, 0.15)"
           squareSize={60}
           hoverFillColor="rgba(81, 53, 101, 0.08)"
         />
       </div>
-      
+
       <section className="relative min-h-screen pt-32 pb-24 px-6">
-        <div className="max-w-5xl mx-auto">
-          <div className="mb-16 text-center animate-fade-in">
+        <div className="max-w-6xl mx-auto">
+          {/* Hero / Intro Section */}
+          <div className="mb-20 text-center animate-fade-in">
             <h1 className="mb-6">Services</h1>
-            <p className="text-xl text-foreground/70 max-w-2xl mx-auto">
-              Strategic systems designed to remove friction and deliver measurable results.
+            <p className="text-xl md:text-2xl text-foreground/80 max-w-3xl mx-auto mb-4">
+              Systems-first automation, data flow, and AI-enabled workflows that remove manual work and improve operational reliability.
+            </p>
+            <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+              Designed for teams that want clean architecture, predictable execution, and measurable outcomes.
             </p>
           </div>
 
-          <div className="space-y-12">
-            {services.map((service, index) => (
-              <Card 
-                key={index}
-                className={`border-${service.color}/20 bg-background/95 backdrop-blur-sm hover:shadow-xl transition-all`}
+          {/* Services Grid - 2x3 on desktop, responsive on smaller screens */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+            {servicesData.map((service) => (
+              <SpotlightCard
+                key={service.id}
+                onClick={() => handleCardClick(service)}
+                className="flex flex-col h-full min-h-[280px]"
               >
-                <CardContent className="p-12">
-                  <div className="flex items-start gap-8">
-                    <div className={`w-16 h-16 rounded-lg bg-${service.color}/10 flex items-center justify-center flex-shrink-0`}>
-                      <div className={`w-8 h-8 bg-${service.color} rounded`}></div>
-                    </div>
-                    <div className="flex-1">
-                      <h2 className="text-3xl mb-6">{service.title}</h2>
-                      <p className="text-lg text-foreground/70 leading-relaxed">
-                        {service.description}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+                <div className="flex flex-col h-full">
+                  <h3 className="text-2xl mb-4">{service.title}</h3>
+                  <p className="text-foreground/70 mb-6">{service.description}</p>
+
+                  <ul className="space-y-3 mb-6 flex-grow">
+                    {service.bullets.map((bullet, index) => (
+                      <li key={index} className="flex items-start gap-3 text-foreground/70 text-sm">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                        {bullet}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <p className="text-sm text-primary/80 font-medium mt-auto pt-4 border-t border-primary/10">
+                    Click to view details
+                  </p>
+                </div>
+              </SpotlightCard>
             ))}
-          </div>
-
-          <div className="mt-24 text-center">
-            <Card className="border-primary/20 bg-background/95 backdrop-blur-sm">
-              <CardContent className="p-12">
-                <h3 className="text-2xl mb-4">How We Work</h3>
-                <p className="text-lg text-foreground/70 leading-relaxed max-w-2xl mx-auto mb-8">
-                  Every engagement begins with understanding. We analyse your current systems, identify opportunities, and build solutions that integrate seamlessly with your operations. Our approach is methodical, transparent, and focused on long-term impact.
-                </p>
-                <Button size="lg" asChild>
-                  <Link to="/#contact">Discuss Your Project</Link>
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
-
-          <div className="mt-16 grid md:grid-cols-3 gap-8">
-            <Card className="border-primary/10 bg-background/95 backdrop-blur-sm">
-              <CardContent className="p-8 text-center">
-                <h4 className="text-xl mb-3 font-semibold">Discovery</h4>
-                <p className="text-foreground/70">
-                  Deep analysis of your operations and pain points
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-primary/10 bg-background/95 backdrop-blur-sm">
-              <CardContent className="p-8 text-center">
-                <h4 className="text-xl mb-3 font-semibold">Design</h4>
-                <p className="text-foreground/70">
-                  Strategic architecture built for clarity and scale
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="border-primary/10 bg-background/95 backdrop-blur-sm">
-              <CardContent className="p-8 text-center">
-                <h4 className="text-xl mb-3 font-semibold">Deployment</h4>
-                <p className="text-foreground/70">
-                  Seamless integration with ongoing support
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
       </section>
+
+      {/* Detail Modal */}
+      <ServiceDetailModal
+        isOpen={selectedService !== null}
+        onClose={handleCloseModal}
+        service={selectedService?.expanded || null}
+      />
     </Layout>
   );
 };
