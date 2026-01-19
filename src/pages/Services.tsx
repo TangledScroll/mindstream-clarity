@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Grid from '@/components/Grid';
 import { Layout } from '@/components/Layout';
 import SpotlightCard from '@/components/SpotlightCard';
@@ -258,6 +259,39 @@ const Services = () => {
                 </div>
               </SpotlightCard>
             ))}
+          </div>
+
+          {/* How We Work Section */}
+          <div className="mt-16 lg:mt-24">
+            {/* Main container */}
+            <div className="rounded-3xl border border-primary/20 bg-background/95 backdrop-blur-sm p-8 md:p-12 text-center">
+              <h2 className="text-3xl md:text-4xl mb-6">How We Work</h2>
+              <p className="text-foreground/70 text-lg max-w-3xl mx-auto mb-8">
+                Every engagement starts with understanding your systems, not selling you a tool. We take a structured, systems-first approach to ensure everything we build integrates cleanly and delivers lasting impact.
+              </p>
+              <Link
+                to="/#contact"
+                className="inline-block px-8 py-3 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
+              >
+                Discuss your project
+              </Link>
+            </div>
+
+            {/* Three phase cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+              <div className="rounded-3xl border border-primary/20 bg-background/95 backdrop-blur-sm p-8 text-center">
+                <h3 className="text-xl font-semibold mb-3">Discovery</h3>
+                <p className="text-foreground/70">Deep analysis of your operations and pain points</p>
+              </div>
+              <div className="rounded-3xl border border-primary/20 bg-background/95 backdrop-blur-sm p-8 text-center">
+                <h3 className="text-xl font-semibold mb-3">Design</h3>
+                <p className="text-foreground/70">Strategic architecture built for clarity and scale</p>
+              </div>
+              <div className="rounded-3xl border border-primary/20 bg-background/95 backdrop-blur-sm p-8 text-center">
+                <h3 className="text-xl font-semibold mb-3">Deployment</h3>
+                <p className="text-foreground/70">Seamless integration with ongoing support</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
